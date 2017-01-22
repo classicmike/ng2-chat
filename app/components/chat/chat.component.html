@@ -1,0 +1,18 @@
+<div class="form-group">
+  <label>Username</label>
+  <input type="text" class="form-control" placeholder="Enter Username" [(ngModel)]="username" name="username" (keyup)="setUsername()">
+
+</div>
+<h1 class="text-center">Chat</h1>
+<div *ngIf="username">
+<div class="form-group">  <input type="text" class="form-control" placeholder="Enter Message" [(ngModel)]="message" name="message" (keyup.enter)="sendMessage()">
+</div>  <br/>
+  <div *ngFor="let message of messages">
+    <div class="well">
+      <strong>{{message.username}}: </strong> {{message.text}}
+    </div>
+  </div>
+</div>
+<div *ngIf="!username">
+  Please Log Into Chat
+</div>
